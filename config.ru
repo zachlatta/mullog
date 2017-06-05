@@ -57,8 +57,14 @@ use Rack::Auth::Basic, 'auth required' do |username, password|
 end
 
 Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
-  committer.wiki.repo.git.pull('origin', 'master')
+  # Stash current changes so we can do our pull, rebase, push magic
+  `cd #{tmpdir} && git stash`
+
+  committer.wiki.repo.git.pull('origin', 'master', rebase: true)
   committer.wiki.repo.git.push('origin', 'master')
+
+  # Get those changes back out there
+  `cd #{tmpdir} && git stash apply --index`
 end
 
 Precious::App.set(:gollum_path, tmpdir)
