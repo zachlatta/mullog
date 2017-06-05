@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rackup --port "$PORT" --host "$HOST"
