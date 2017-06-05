@@ -1,0 +1,10 @@
+test:
+  override:
+    - echo "No tests! CircleCI is only used for deployment."
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - git remote add dokku dokku@apps.zachlatta.com:mullog
+      - git push dokku master
