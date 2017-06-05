@@ -85,6 +85,7 @@ DEPENDENCIES
   gollum
   org-ruby
   puma
+  rack
   wikicloth
 
 BUNDLED WITH

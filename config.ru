@@ -27,6 +27,9 @@ GIT_PASSWORD = ENV.fetch('GIT_PASSWORD')
 GIT_AUTHOR_NAME = ENV.fetch('GIT_AUTHOR_NAME')
 GIT_AUTHOR_EMAIL = ENV.fetch('GIT_AUTHOR_EMAIL')
 
+HTTP_USERNAME = ENV.fetch('HTTP_USERNAME')
+HTTP_PASSWORD = ENV.fetch('HTTP_PASSWORD')
+
 WIKI_OPTIONS = {
   universal_toc: true,
   live_preview: false,
@@ -48,6 +51,10 @@ log 'Cloning git repo...'
 `cd #{tmpdir} && git clone #{authed_git_url} .`
 
 log 'Starting Gollum...'
+
+use Rack::Auth::Basic, 'auth required' do |username, password|
+  [username, password] == [HTTP_USERNAME, HTTP_PASSWORD]
+end
 
 Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
   committer.wiki.repo.git.pull('origin', 'master')

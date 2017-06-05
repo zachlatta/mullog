@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'dotenv'
 
 # Rack server
+gem 'rack'
 gem 'puma'
 
 # Gollum and markup renderers
