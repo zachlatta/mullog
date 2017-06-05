@@ -1,4 +1,4 @@
-# Mullog
+# Mullog [![CircleCI](https://circleci.com/gh/zachlatta/mullog.svg?style=svg)](https://circleci.com/gh/zachlatta/mullog)
 
 Mullog is a personal wiki powered by [Gollum](https://github.com/gollum/gollum).
 
