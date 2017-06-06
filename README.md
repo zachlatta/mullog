@@ -12,7 +12,10 @@ If you're looking for a personal deployment of Gollum to manage your life, Mullo
 
 ## Setup
 
-Set the following environment variables:
+1. Pick a git repo you want to use with Gollum
+2. Create a new GitHub webhook on that repo for push events, sending a POST request to `/gh_webhook` with the content type `application/x-www-form-urlencoded`. Generate and write down a secure secret to verify webhook requests with. You'll need this when setting up your environment variables.
+
+Then set the following environment variables:
 
 - `GIT_URL` - HTTP(S) URL to your chosen git repo (must be HTTP(S), SSH and others are untested and may not work)
 - `GIT_USERNAME` - username to authenticate to `GIT_URL` with
@@ -21,9 +24,10 @@ Set the following environment variables:
 - `GIT_AUTHOR_EMAIL` - email to add to git commits (ex. "zach@zachlatta.com")
 - `HTTP_USERNAME` - username to allow HTTP login with
 - `HTTP_PASSWORD` - password to allow HTTP login with
+- `GH_WEBHOOK_SECRET` - the secret you gave when setting up your GitHub webhook
 - `RACK_ENV` - can either be "production" or "development", your call
 
-And then deploy it the same way you deploy any other Rack app!
+And deploy it the same way you deploy any other Rack app!
 
 ## What the heck is a Mullog?
 

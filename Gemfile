@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Make development nicer
 gem 'dotenv'
+gem 'byebug'
 
 # Rack server
 gem 'rack'
@@ -15,3 +16,6 @@ gem 'creole'
 gem 'wikicloth'
 gem 'org-ruby'
 gem 'RedCloth'
+
+# For our GitHub webhook middleware
+gem 'sinatra'
