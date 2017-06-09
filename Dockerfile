@@ -17,4 +17,4 @@ RUN bundle install
 
 ADD . /usr/src/app
 
-ENTRYPOINT bin/start
+CMD bin/start
