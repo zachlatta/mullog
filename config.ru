@@ -30,16 +30,18 @@ module Util
   end
 
   def self.update_repo(git_dir)
-    @@git_mutex.synchronize do
-      # Stash current changes so we can do our pull, rebase, push magic
-      `cd #{git_dir} && git stash`
+    Thread.new do
+      @@git_mutex.synchronize do
+	# Stash current changes so we can do our pull, rebase, push magic
+	`cd #{git_dir} && git stash`
 
-      # Pull, rebase, and push
-      `cd #{git_dir} && git pull --rebase`
-      `cd #{git_dir} && git push`
+	# Pull, rebase, and push
+	`cd #{git_dir} && git pull --rebase`
+	`cd #{git_dir} && git push`
 
-      # Get those changes back out there
-      `cd #{git_dir} && git stash apply --index`
+	# Get those changes back out there
+	`cd #{git_dir} && git stash apply --index`
+      end
     end
   end
 end
