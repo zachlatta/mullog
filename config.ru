@@ -116,7 +116,8 @@ WIKI_OPTIONS = {
   universal_toc: true,
   live_preview: false,
   collapse_tree: true,
-  h1_title: true
+  h1_title: true,
+  allow_uploads: :dir
 }
 
 authed_git_url = Util.add_auth_to_uri(GIT_URL, GIT_USERNAME, GIT_PASSWORD)
