@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Launches a Docker shell that exposes ports to the outside world. Should only
+# be used for development.
+
+docker-compose run --service-ports web /bin/sh
