@@ -118,7 +118,8 @@ WIKI_OPTIONS = {
   collapse_tree: true,
   h1_title: true,
   allow_uploads: :dir,
-  css: true
+  css: true,
+  js: true
 }
 
 authed_git_url = Util.add_auth_to_uri(GIT_URL, GIT_USERNAME, GIT_PASSWORD)
