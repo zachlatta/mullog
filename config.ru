@@ -113,7 +113,6 @@ HTTP_PASSWORD = ENV.fetch('HTTP_PASSWORD')
 GH_WEBHOOK_SECRET = ENV.fetch('GH_WEBHOOK_SECRET')
 
 WIKI_OPTIONS = {
-  universal_toc: true,
   live_preview: false,
   collapse_tree: true,
   h1_title: true,
