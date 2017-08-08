@@ -5,7 +5,7 @@ Mullog is a personal wiki powered by [Gollum](https://github.com/gollum/gollum).
 Mullog takes the default Gollum server and...
 
 - Throws it behind Puma
-- Hooks it up with a git repo of your choosing (including pushing & pulling changes from given repo)
+- Hooks it up with a remote git repo of your choosing
 - Puts it all behind HTTP authentication
 
 If you're looking for a personal deployment of Gollum to manage your life, Mullog is probably what you're looking for.
